@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block base %}
+<div>
+    <nav class="navbar fixed-top navbar-expand-lg bg-body-tertiary" >
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url "indexescola" %}">Administração</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url "lis_pros" %}">Professores</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url "lis_alus" %}">Alunos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url "lis_curs" %}">Cursos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url "lis_turs" %}">Turmas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url "lis_auls" %}">Aulas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url "msgs" %}">Mensagens</a>
+                    </li>
+                </ul>
+                <span class='navbar-text'>Bem vindo, <strong>{{user.first_name}}</strong></span>
+                &nbsp;
+                &nbsp;
+                <a class='btn btn-outline-danger' href="{% url "desl" %}">Deslogar</a>
+            </div>
+        </div>
+    </nav>
+</div>
+<div class='container'>
+    {% block corpo %}{% endblock corpo %}
+</div>
+{% endblock base %}

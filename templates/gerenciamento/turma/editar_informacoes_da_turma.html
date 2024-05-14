@@ -1,0 +1,18 @@
+{% extends "gerenciamento/base.html" %}
+{% block corpo %}
+<div class='col-10 mx-auto'>
+    <div class='text-center'>
+        <h1>Editar informações da Turma</h1>
+    </div>
+    <div class='col-7 p-5 border border-3 rounded-5 mx-auto'>
+        <form action="{% url "edi_inf_tur" turma.id %}" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class='d-grid gap-2 d-md-block'>
+                <input class='btn btn-success' type="submit" value="Enviar">
+                <a class='btn btn-danger text' href="{% url "inf_tur" turma.id %}">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock corpo %}

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block base %}
+<div class='col-6 mx-auto text-center'>
+    <h1>Quem está logando?</h1><br>
+    <div>
+        <h4><a class='list-group-item p-5 border border-3 rounded-5' href="{% url "log_esc" %}">Escola</a></h>
+    </div>
+    <br>
+    <div>
+        <h4><a class='list-group-item p-5 border border-3 rounded-5' href="{% url "log_pro" %}">Professor</a></h4>
+    </div>
+    <br>
+    <div>
+        <h4><a class='list-group-item p-5 border border-3 rounded-5' href="{% url "log_alu" %}">Aluno</a></h4>
+    </div>
+    <br>
+</div>
+{% endblock base %}
+

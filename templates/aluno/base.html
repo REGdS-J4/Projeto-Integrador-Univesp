@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block base %}
+<div>
+    <nav class="navbar fixed-top navbar-expand-lg bg-body-tertiary"> 
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url "ind_alu" aluno.id %}">Index Aluno</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="nav navbar-nav me-auto">
+                    <li >
+                        <a class="nav-link" href="{% url "ind_alu_age" aluno.id %}">Agenda</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="{% url "ind_alu_msgs" aluno.id %}">Mensagens</a>
+                    </li>
+                </ul>
+                <span class='navbar-text'>Bem vindo, <strong>{{user.first_name}}</strong></span>
+                &nbsp;
+                <br>
+                &nbsp;
+                <a class='btn btn-outline-danger' href="{% url "desl" %}">Deslogar</a>
+            </div>
+        </div>
+    </nav>
+</div>
+{% block corpo %}{% endblock corpo %}
+{% endblock base %}

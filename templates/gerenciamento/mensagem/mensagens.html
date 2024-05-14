@@ -1,0 +1,44 @@
+{% extends "gerenciamento/base.html" %}
+{% block corpo %}
+<div class='col-12 mx-auto'>
+    <div>
+        <h1 class='text-center'><strong>Mensagens do Administrador</strong></h1>
+        <div>
+            <a class='btn btn-info' href="{% url "env_msg" %}">Enviar uma nova mensagem</a>
+        </div>
+    </div>
+    <br>
+    <div class='row'>
+        <div class='col'>
+            <h3>Mensagens enviadas:</h3>
+            <br>
+            {% for mensagem in m_e %}
+                <div><a class='list-group-item p-5 border border-3 rounded-5' href="{% url "msg" mensagem.id %}">
+                    <strong>Para:</strong> {{mensagem.destinatario}} <br>
+                    <strong>Assunto:</strong> {{mensagem.assunto}} <br>
+                    <small>{{mensagem.data_hora}}</small>
+                </a></div><br>
+            {% empty %}
+                <div class='list-group-item p-5 border border-3 rounded-5'>
+                    <p>Nenhuma mensagem enviada.</p>
+                </div>
+            {% endfor %}
+        </div>
+        <div class='col'>
+            <h3>Mensagens recebidas:</h3>
+            <br>
+            {% for mensagem in m_r %}
+                <div><a class='list-group-item p-5 border border-3 rounded-5' href="{% url "msg" mensagem.id %}">
+                    <strong>De:</strong> {{mensagem.remetente}} <br>
+                    <strong>Assunto:</strong> {{mensagem.assunto}} <br>
+                    <small>{{mensagem.data_hora}}</small>
+                </a></div>
+            {% empty %}
+                <div class='list-group-item p-5 border border-3 rounded-5'>
+                    <p>Nenhuma mensagem recebida.</p>
+                </div>
+            {% endfor %}
+        </div>
+    <br>
+</div>
+{% endblock corpo %}

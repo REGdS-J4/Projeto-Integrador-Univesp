@@ -1,0 +1,138 @@
+# Arquivos gerados pelo Django
+*.log
+*.pot
+*.pyc
+__pycache__
+#db.sqlite3
+media
+
+# Arquivos de backup
+*.bak
+
+# Configurações específicas do PyCharm
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/usage.statistics.xml
+.idea/**/dictionaries
+.idea/**/shelf
+
+# Configurações específicas da AWS
+.idea/**/aws.xml
+
+# Arquivos gerados
+.idea/**/contentModel.xml
+
+# Arquivos sensíveis ou de alta rotatividade
+.idea/**/dataSources/
+.idea/**/dataSources.ids
+.idea/**/dataSources.local.xml
+.idea/**/sqlDataSources.xml
+.idea/**/dynamic.xml
+.idea/**/uiDesigner.xml
+.idea/**/dbnavigator.xml
+
+# Configurações do Gradle
+.idea/**/gradle.xml
+.idea/**/libraries
+
+# Formato de projeto baseado em arquivos
+*.iws
+
+# Configurações do IntelliJ
+out/
+
+# Plugin JIRA
+atlassian-ide-plugin.xml
+
+# Arquivos Python
+*.py[cod]
+*$py.class
+
+# Distribuição / empacotamento
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.whl
+*.egg-info/
+.installed.cfg
+*.egg
+*.manifest
+*.spec
+
+# Logs do instalador
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Relatórios de testes unitários / cobertura
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+.pytest_cache/
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Configurações do pyenv
+.python-version
+
+# Configurações do celery
+celerybeat-schedule.*
+
+# Arquivos analisados pelo SageMath
+*.sage.py
+
+# Ambientes
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Documentação do mkdocs
+/site
+
+# Cache do mypy
+.mypy_cache/
+
+# Configurações do Sublime Text
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+*.sublime-workspace
+*.sublime-project
+
+# Arquivo de configuração SFTP
+sftp-config.json
+
+# Arquivos específicos do Package Control
+Package Control.last-run
+Package Control.ca-list
+Package Control.ca-bundle
+Package Control.system-ca-bundle
+GitHub.sublime-settings
+
+# Configurações do Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history

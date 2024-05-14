@@ -1,0 +1,45 @@
+{% extends "gerenciamento/base.html" %}
+{% block corpo %}
+<div class='col-10 mx-auto'>
+    <div class='text-center'>
+        <h1>Informações da Turma</h1>
+    </div>
+    <div class='border p-5 border-4 rounded-5'>
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th class='text-center' colspan='2' >Dados da Turma</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>Nome:</th>
+                    <td>{{ turma.nome }}</td>
+                </tr>
+                <tr>
+                    <th>Professor(es):</th>
+                    <td>
+                        {% for professor in turma.professor.all %}
+                            {{ professor }}{% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    </td>
+                </tr>
+                <tr>
+                    <th>Carga Horária Semanal:</th>
+                    <td>
+                        {% for carga_horaria_semanal in turma.carga_horaria_semanal.all %}
+                            {{ carga_horaria_semanal }}{% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div>
+            <a class='btn btn-warning' href="{% url "edi_inf_tur" turma.id %}">Editar</a>
+            <a class='btn btn-danger' href="{% url "del_tur" turma.id %}">Deletar</a>
+            <a class='btn btn-outline-secondary' href="{% url "lis_turs" %}">Voltar</a>
+        </div>
+    </div>
+    <br>
+</div>
+{% endblock corpo %}

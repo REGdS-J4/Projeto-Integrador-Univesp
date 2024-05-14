@@ -1,0 +1,41 @@
+{% extends "professor/base.html" %}
+{% block corpo %}
+<div class='col-7 mx-auto'>
+    <div class='text-center'>
+        <h1><strong>Detalhes da Mensagem</strong></h1>
+    </div>
+    <br>
+    <div class='border p-5 border-3 rounded-5'>
+        <div>
+            <strong>De:</strong>{{mensagem.remetente}} <br>
+            <strong>Para:</strong>{{mensagem.destinatario}}
+        </div> 
+        <div>
+            <strong>Assunto:</strong> {{mensagem.assunto}} <br>
+            <strong>Mensagem:</strong>
+            <div class='border border-2 rounded-3 p-2'>
+                <p>{{mensagem.conteudo}}</p>
+            </div>
+        </div>
+        <br>
+        {% if user == mensagem.destinatario %}
+            <div>
+                <div>
+                    <form action="{% url "ind_pro_msg" professor.id mensagem.id %}" method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <div class='d-grid gap-2 d-md-block'>
+                            <input class='btn btn-success' type="submit" value="Responder Mensagem">
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <br>
+        {% endif %}
+        <div>
+            <a class='btn btn-secondary' href="{% url "ind_pro_msgs" professor.id %}"><strong>Voltar</strong></a>
+        </div>
+    </div>
+    <br>
+</div>
+{% endblock corpo %}

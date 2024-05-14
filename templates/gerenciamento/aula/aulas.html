@@ -1,0 +1,37 @@
+{% extends "gerenciamento/base.html" %}
+{% block corpo %}
+<div class='col-10 mx-auto'>
+    <div class='col-10 mx-auto'>
+        <div>
+            <h1 class='text-center'>Histórico de Aulas Registradas</h1>
+            <a class='btn btn-info' href="{% url 'add_aul' %}">Registrar Nova Aula</a>
+        </div>
+        <br>
+        <form class='row g-3' action="{% url "fil_auls" %}" method="get">
+            <div class='col-auto'>
+                <select class='form-control' name="turma" >
+                    {% for turma in turmas %}
+                    <option value="{{turma.id}}"> {{turma.nome}} </option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class='col-auto'>
+                <button class='btn btn-secondary' type='submit'>Filtrar</button>
+            </div>
+        </form>
+    </div>
+    <br>
+    <div class='col-10 mx-auto'>
+        {% for aula in aulas %}
+            <div class='border border-3 p-4 rounded-5'>
+                <p>Aula: {{aula.curso}} </p>
+                <p>Dia e Hora: {{aula.dia_da_semana}}, {{aula.hora_do_dia}} </p>
+                <p>Professor e Turma: {{aula.professor}}, {{aula.turma}} </p>
+                <a class='btn btn-warning' href="{% url "edi_inf_aul" aula.id %}">Editar</a>
+                <a class='btn btn-danger' href="{% url "del_aul" aula.id %}">Deletar</a>
+            </div>
+            <br>
+        {% endfor %}
+    </div>
+</div>
+{% endblock corpo %}

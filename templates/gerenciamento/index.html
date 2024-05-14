@@ -1,0 +1,20 @@
+{% extends "gerenciamento/base.html" %}
+{% block corpo %}
+<div class='col-7 mx-auto'>
+    <div class='text-center'>
+        <h2><strong>Página do Adiministrador</strong></h2>
+    </div>
+    <div class='border p-5 border-3 rounded-5'>
+        <div>
+            <h4>Adicionando um novo usuário</h4>
+            <p>Ao registrar um novo professor ou aluno, registre também um novo usuário para cada um!!!</p>
+            <a class='btn btn-info' href="{% url "add_log" %}">REGISTRAR NOVO USUÁRIO</a>
+        </div>
+        <br>
+        <div>
+            <h4><strong>Para mais detalhes consulte o site "<a href="/admin/">admin</a>" do django.</strong></h4>
+            <p>Usar esse site com atenção e cuidado!!</p>
+        </div>
+    </div>
+</div>
+{% endblock corpo %}

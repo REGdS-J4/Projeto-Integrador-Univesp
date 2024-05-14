@@ -1,0 +1,90 @@
+{% extends "gerenciamento/base.html" %}
+{% block corpo %}
+<div class='col-10 mx-auto'>
+    <div class='text-center'>
+        <h1>Informações do Aluno</h1>
+    </div>
+    <div class='border p-5 border-4 rounded-5'>
+        <div>
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th class='text-center' colspan='2' >Dados do Aluno</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>Nome:</th>
+                        <td>{{ aluno.nome }}</td>
+                    </tr>
+                    <tr>
+                        <th>CPF:</th>
+                        <td>{{ aluno.cpf }}</td>
+                    </tr>
+                    <tr>
+                        <th>RG:</th>
+                        <td>{{ aluno.rg }}</td>
+                    </tr>
+                    <tr>
+                        <th>Data de Nascimento:</th>
+                        <td>{{ aluno.data_nascimento }}</td>
+                    </tr>
+                    <tr>
+                        <th>Email:</th>
+                        <td>{{ aluno.email }}</td>
+                    </tr>
+                    <tr>
+                        <th>Telefone:</th>
+                        <td>{{ aluno.telefone }}</td>
+                    </tr>
+                    <tr>
+                        <th>Endereço:</th>
+                        <td>{{ aluno.endereco }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th class='text-center' colspan='2'>Dados da Matrícula</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>Curso(s):</th>
+                        <td>
+                            {% for curso in aluno.curso.all %}
+                            {{ curso }}{% if not forloop.last %}, {% endif %}
+                            {% endfor %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Turma(s):</th>
+                        <td>{{ aluno.turma }}</td>
+                    </tr>
+                    <tr>
+                        <th>Data da Matricula:</th>
+                        <td>{{ aluno.data_matricula }}</td>
+                    </tr>
+                    <tr>
+                        <th>Situação da Matricula:</th>
+                        <th>
+                            {% if aluno.situacao_matricula %}Ativa{% else %}Inativa{% endif %}</th>
+                        </th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <div>
+                <a class='btn btn-warning' href="{% url "edi_inf_alu" aluno.id %}">Editar</a>
+                <a class='btn btn-danger' href="{% url "del_alu" aluno.id %}">Deletar</a>
+                <a class='btn btn-outline-secondary' href="{% url "lis_alus" %}">Voltar</a>
+            </div>
+        </div>
+    </div>
+    <br>
+</div>
+{% endblock corpo %}

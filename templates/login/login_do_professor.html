@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block base %}
+<div class='col-6 mx-auto border border-4 p-5 rounded-5'>
+    <div class='text-center'>
+        <h2>Login do Professor</h2>
+    </div>
+    <br>
+    <div>
+        {% if messages %}
+        <div>
+            {% for message in messages %}
+            <div class='alert alert-danger alert-dismissible fade show' role='alert'>
+                {{ message }}
+                <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='close'></button>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+
+    <div>
+        <form action="{% url "log_pro" %}" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div>
+                <input class='btn btn-success' type="submit" value="Entrar">
+                <a href="{% url "qel" %}" class="btn btn-secondary">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock base %}

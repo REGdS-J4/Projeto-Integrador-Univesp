@@ -1,0 +1,31 @@
+{% extends "professor/base.html" %}
+{% block corpo %}
+<div class='col-10 mx-auto'>
+    <div class='text-center'>
+        <h2><strong>Enviar uma nova Mensagem</strong></h2>
+    </div>
+    <br>
+    <div>
+        {% if messages %}
+            <div class='container mt-3'>
+                {% for message in messages %}
+                    <div class='alert alert-danger alert-dismissible fade show' role='alert'>
+                        {{ message }}
+                        <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='close'></button>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+    <div class='col-7 mx-auto border border-3 rounded-5 p-5'>
+        <form action="{% url "ind_pro_env_msg" professor.id %}" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div>
+                <input class='btn btn-success' type="submit" value="Enviar Mensagem">
+                <a class='btn btn-danger text' href="{% url "ind_pro_msgs" professor.id %}">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock corpo %}

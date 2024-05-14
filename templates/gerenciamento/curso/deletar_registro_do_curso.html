@@ -1,0 +1,17 @@
+{% extends "gerenciamento/base.html" %}
+{% block corpo %}
+<div class='col-10 mx-auto'>
+    <br>
+    <div class='col-8 mx-auto border border-4 rounded-5 p-5'>
+        <form action="{% url 'del_cur' curso.id %}" method="post" class="">
+            {% csrf_token %}
+            <h2>Confirmar Exclusão</h2>
+            <p>Tem certeza de que deseja excluir o curso "{{ curso.nome }}"?</p>
+            <p class="form-buttons">
+                <input type="submit" class="btn btn-danger" value="Excluir">
+                <a href="{% url 'inf_cur' curso.id %}" class="btn btn-outline-secondary">Cancelar</a>
+            </p>
+        </form>
+    </div>
+</div>
+{% endblock corpo %}

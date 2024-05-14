@@ -1,0 +1,22 @@
+{% extends "gerenciamento/base.html" %}
+{% block corpo %}
+<div class='col-10 mx-auto'>
+    <div class='col-8 mx-auto border border-4 p-5 rounded-5'>
+        <form action="{% url 'del_aul' aula.id %}" method="post" class="">
+            {% csrf_token %}
+            <h2>Confirmar Exclusão</h2>
+            <p>Tem certeza de que deseja excluir a aula:</p>
+            <div class='border p-3 border-2 rounded-4'>
+                <p>Aula: {{aula.curso}} </p>
+                <p>Dia e Hora: {{aula.dia_da_semana}}, {{aula.hora_do_dia}} </p>
+                <p>Professor e Turma: {{aula.professor}}, {{aula.turma}} </p>
+            </div> 
+            <br>
+            <p class="form-buttons">
+                <input type="submit" class="btn btn-danger" value="Excluir">
+                <a href="{% url 'lis_auls' %}" class="btn btn-outline-secondary">Cancelar</a>
+            </p>
+        </form>
+    </div>
+</div>
+{% endblock corpo %}

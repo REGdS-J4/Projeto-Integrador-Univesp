@@ -1,0 +1,24 @@
+{% extends "gerenciamento/base.html" %}
+{% block corpo %}
+<div class='col-7 mx-auto'>
+    <div class='text-center'>
+        <h1>Lista das Turmas</h1>
+    </div>
+    <div class='border p-5 border-3 rounded-5'>
+        <div>
+            <a class='btn btn-info' href="{% url "add_tur" %}">Registrar Turma</a>
+        </div>
+        <br>
+        <div>
+            <ul class='list-group text-center'>
+                {% for turma in turmas %}
+                    <li class='list-group'><a class='list-group-item list-group-item-action' href="{% url "inf_tur" turma.id %}">{{ turma.nome }}</a></li><br>
+                {% empty %}
+                    <li>Não há turmas registradas!</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <br>
+</div>
+{% endblock corpo %}

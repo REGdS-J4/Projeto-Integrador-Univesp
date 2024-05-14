@@ -1,0 +1,21 @@
+{% extends "gerenciamento/base.html" %}
+{% block corpo %}
+<div class='col-7 mx-auto'>
+    <div class='text-center'>
+        <h1><strong>Lista dos Professores</strong></h1>
+    </div>
+    <div class='border p-5 border-3 rounded-5'>
+        <div>
+            <a class='btn btn-info' href="{% url "add_pro" %}">Registrar Professor</a>
+        </div>
+        <br>
+        <ul class='list-group text-center'>
+            {% for professor in professores %}
+                <li class='list-group'><a class='list-group-item list-group-item-action' href="{% url "inf_pro" professor.id %}">{{ professor.nome }}</a></li><br>
+            {% empty %}
+                <li>Não há professores registrados!</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock corpo %}

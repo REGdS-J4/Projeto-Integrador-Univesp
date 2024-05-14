@@ -1,0 +1,26 @@
+{% extends "gerenciamento/base.html" %}
+{% block corpo %}
+<div class='col-10 mx-auto'>
+    <div class='col-10 mx-auto'>    
+        <br>
+        <h1 class='text-center'>Aulas da Turma Selecionada </h1>
+        <br>
+        <a class='btn btn-info' href="{% url "lis_auls" %}">Listar todas Aulas</a>
+    </div>
+    <br>
+    <div class='col-10 mx-auto'>
+        {% for aula in aulas %}
+            <div class='border border-3 p-4 rounded-5'>
+                <p>Aula: {{ aula.curso }}</p>
+                <p>Dia e Hora: {{ aula.dia_da_semana }}, {{ aula.hora_do_dia }}</p>
+                <p>Professor e Turma: {{ aula.professor }}, {{ aula.turma }}</p>
+                <a class='btn btn-warning' href="{% url "edi_inf_aul" aula.id %}">Editar</a>
+                <a class='btn btn-danger' href="{% url "del_aul" aula.id %}">Deletar</a>
+            </div>
+            <br>
+        {% empty %}
+            <p>Nenhuma aula encontrada para a turma selecionada.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock corpo %}

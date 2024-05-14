@@ -1,0 +1,36 @@
+{% extends "gerenciamento/base.html" %}
+{% block corpo %}
+<div class='col-10 mx-auto'>
+    <div class='text-center'>
+        <h1>Informações do Curso</h1>
+    </div>
+    <div class='border p-5 border-4 rounded-5'>
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th class='text-center' colspan='2' >Dados do Curso</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>Nome:</th>
+                    <td>{{ curso.nome }}</td>
+                </tr>
+                <tr>
+                    <th>Descrição:</th>
+                    <td>{{ curso.descricao }}</td>
+                </tr>
+                <tr>
+                    <th>Duração:</th>
+                    <td>{{ curso.duracao }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <div>
+            <a class='btn btn-warning' href="{% url "edi_inf_cur" curso.id %}">Editar</a>
+            <a class='btn btn-danger' href="{% url "del_cur" curso.id %}">Deletar</a>
+            <a class='btn btn-outline-secondary' href="{% url "lis_curs" %}">Voltar</a>
+        </div>
+    </div>
+</div>
+{% endblock corpo %}

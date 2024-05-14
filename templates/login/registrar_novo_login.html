@@ -1,0 +1,32 @@
+{% extends "gerenciamento/base.html" %}
+{% block corpo %}
+<div class='col-10 mx-auto'>
+    <div class='text-center'>
+        <h2><strong>Registrar um novo usuário</strong></h2>
+    </div>
+    <div class='col-7 mx-auto border border-3 rounded-5 p-5'>
+        <form action="{% url "add_log" %}" method="post">
+            {% csrf_token %}
+            <p><label for="id_usuario">Usuário:</label>
+                <input class='form-control' type="text" name="usuario" id='id_usuario' autocomplete='off' required></p>
+            <p><label for="id_senha">Senha:</label>
+                <input class='form-control' type="password" name="senha" autocomplete='new-password' id='id_senha' minlength='8' required></p>
+            <p><label for="id_primeiro_nome">Primeiro Nome:</label>
+                <input class='form-control' type="text" name="primeiro_nome" id='id_primeiro_nome' autocomplete='off' required></p>
+            <p><label for="id_ultimo_nome">Ultimo Nome:</label>
+                <input class='form-control' type="text" name="ultimo_nome" id='id_ultimo_nome' autocomplete='off' required></p>
+            <p><label for="id_grupo_login">Tipo de Login:</label>
+                <select class='form-control' name="grupo_login" id="id_grupo_login" required>
+                    <option value="2">Escola</option>
+                    <option value="3">Professor</option>
+                    <option value="4">Aluno</option>
+                </select></p>
+            <br>
+            <div>
+                <input class='btn btn-success' type="submit" value="Registrar">
+                <a class='btn btn-danger' href="{% url "indexescola" %}">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock corpo %}

@@ -1,0 +1,43 @@
+{% extends "professor/base.html" %}
+{% block corpo %}
+{% load custom_filters %}
+<div class=' text-center'>
+    <h3><strong>Agenda do Professor</strong></h3>
+    <div class='col-1'>
+        Legenda
+        {% for turma in turmas %}
+            <div class='border {{turma.nome}}'>{{turma.nome}}</div>
+        {% endfor %}
+    </div>
+    <br>
+    <div>
+        <table class='table table-striped table-bordered border-light'>
+            <thead>
+                <tr>
+                    <th>Horas</th>
+                    {% for dia in dias %}
+                        <th>{{ dia }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for hora in horas %}
+                    <tr>
+                        <th>{{ hora }}</th>
+                        {% for dia in dias %}
+                            {% with aula=aulas_por_hora_semana|get_item:hora|get_item:dia%}
+                                {% if aula %}
+                                    <td class="{{ aula.turma }}">{{ aula.curso }}</td>
+                                {% else %}
+                                    <td></td>
+                                {% endif %}
+                            {% endwith %}
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <br>
+</div>
+{% endblock corpo %}
