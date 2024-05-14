@@ -3,7 +3,7 @@
 
 O arquivo "db.sqlite3" é um banco de dados apenas para testar o software, as informações contidas nele são meramente fictícias.
 Super usuário para acessar apenas a pagina admin do django:
-SuperUser:admin
+Usuário:admin
 Senha:admin
 Para poder acessar o projeto segue as contas dos usuários testes:
 Acessar todas as áreas:
