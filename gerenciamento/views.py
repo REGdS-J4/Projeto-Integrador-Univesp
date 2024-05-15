@@ -1,5 +1,3 @@
-from lib2to3.fixes.fix_input import context
-from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, render, redirect
 from django.urls import reverse
 from .models import *
