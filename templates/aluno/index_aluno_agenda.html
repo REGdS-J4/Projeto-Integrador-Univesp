@@ -4,6 +4,12 @@
 <div class='container text-center'>
     <br>
     <h3><strong>Agenda do Aluno</strong></h3>
+    <div class='col-1'>
+        <h6>Legenda</h6>
+        {% for curso in cursos %}
+            <div class='border {{curso.nome}}'>{{curso.nome}}</div>
+        {% endfor %}
+    </div>
     <br>
     <div>
         <table class='table table-striped table-bordered border-light'>
@@ -22,7 +28,7 @@
                         {% for dia in dias %}
                             {% with aula=aulas_por_hora_semana|get_item:hora|get_item:dia %}
                                 {% if aula %}
-                                    <td>{{aula.curso}}</td>
+                                    <td class="{{ aula.curso }}">{{aula.curso}}</td>
                                 {% else %}
                                     <td></td>
                                 {% endif %}

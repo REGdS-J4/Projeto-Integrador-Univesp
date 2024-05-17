@@ -540,6 +540,7 @@ def index_aluno(request, id):
 @user_passes_test(aluno)
 def index_aluno_agenda(request, id):
     aluno = Aluno.objects.get(id=id)
+    cursos = Curso.objects.all()
     turma = Turma.objects.all()
     turmas = Turma.objects.filter(aluno=aluno)
     dias = DiaDaSemana.objects.all()
@@ -554,6 +555,7 @@ def index_aluno_agenda(request, id):
             aulas_por_semana[dia] = aula
         aulas_por_hora_semana[hora] = aulas_por_semana    
     context = {'aluno':aluno,
+               'cursos':cursos,
                'turmas':turmas,
                'dias':dias,
                'horas':horas,
